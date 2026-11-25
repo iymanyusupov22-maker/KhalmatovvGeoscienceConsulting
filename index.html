@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KHALMATOV GEOSCIENCE CONSULTING — Научный геологический консалтинг</title>
+  <meta name="description" content="Рустам Абдухатович Халматов, DSc — грантовый консалтинг (JSPS, GSA, IGCP/UNESCO), геологическая и минералогическая экспертиза, научно-методические консультации по диссертациям PhD/DSc." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            malachite: {
+              950: '#091512',
+              900: '#0E1F1B',
+              800: '#162F29',
+              700: '#1E4037',
+            },
+            mineralGold: {
+              300: '#DEC282',
+              400: '#C5A256',
+              500: '#A98438',
+              600: '#876626',
+            },
+            quartz: '#F5F1E8',
+            stonePaper: '#ECE6D8',
+            ink: {
+              900: '#18211E',
+              700: '#35403C',
+              500: '#5D6662',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      background-color: #F5F1E8;
+      color: #18211E;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hairline-dark {
+      border-color: rgba(222, 194, 130, 0.18);
+    }
+
+    .hairline-light {
+      border-color: rgba(24, 33, 30, 0.12);
+    }
+
+    .tab-btn {
+      position: relative;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background-color: #0E1F1B;
+      color: #F5F1E8;
+      border-color: #0E1F1B;
+    }
+
+    .tab-btn[aria-selected="false"] {
+      background-color: transparent;
+      color: #35403C;
+      border-color: rgba(24, 33, 30, 0.18);
+    }
+
+    .tab-btn[aria-selected="false"]:hover {
+      border-color: #876626;
+      color: #18211E;
+    }
+
+    .pos-panel {
+      display: none;
+    }
+
+    .pos-panel.is-active {
+      display: block;
+    }
+
+    /* Аккуратная доступная обводка фокуса */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #C5A256;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="selection:bg-mineralGold-400/25 selection:text-ink-900">
+
+  <!-- ШАПКА САЙТА -->
+  <header class="sticky top-0 z-40 bg-malachite-950/95 backdrop-blur-md border-b hairline-dark">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[4.5rem] sm:h-20 py-2.5 flex items-center justify-between gap-4">
+      <!-- Логотип -->
+      <a href="#top" class="flex items-center gap-3 group min-w-0">
+        <div class="w-10 h-10 flex-shrink-0">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
+            <polygon points="60,6 112,60 60,114 8,60" fill="#B68F40" fill-opacity="0.9" stroke="#F5F1E8" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="60,36 84,60 60,84 36,60" fill="#D5B670" stroke="#F5F1E8" stroke-width="2.2" stroke-linejoin="round"/>
+            <line x1="60" y1="6" x2="60" y2="36" stroke="#F5F1E8" stroke-width="2"/>
+            <line x1="60" y1="84" x2="60" y2="114" stroke="#F5F1E8" stroke-width="2"/>
+            <line x1="8" y1="60" x2="36" y2="60" stroke="#F5F1E8" stroke-width="2"/>
+            <line x1="84" y1="60" x2="112" y2="60" stroke="#F5F1E8" stroke-width="2"/>
+            <line x1="60" y1="6" x2="36" y2="60" stroke="#F5F1E8" stroke-width="1.2" stroke-opacity="0.7"/>
+            <line x1="60" y1="6" x2="84" y2="60" stroke="#F5F1E8" stroke-width="1.2" stroke-opacity="0.7"/>
+            <line x1="60" y1="114" x2="36" y2="60" stroke="#F5F1E8" stroke-width="1.2" stroke-opacity="0.7"/>
+            <line x1="60" y1="114" x2="84" y2="60" stroke="#F5F1E8" stroke-width="1.2" stroke-opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="leading-tight truncate">
+          <span class="block font-serif text-lg sm:text-xl font-bold tracking-wider text-quartz">KHALMATOV</span>
+          <span class="block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-mineralGold-300 font-medium">Geoscience Consulting</span>
+        </div>
+      </a>
+
+      <!-- Навигация (десктоп) -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm text-quartz/80" aria-label="Основная навигация">
+        <a href="#services" class="hover:text-mineralGold-300 transition-colors" data-i18n="nav_services">Направления</a>
+        <a href="#approach" class="hover:text-mineralGold-300 transition-colors" data-i18n="nav_approach">Подход</a>
+        <a href="#positioning" class="hover:text-mineralGold-300 transition-colors" data-i18n="nav_positioning">Позиционирование</a>
+        <a href="#contacts" class="hover:text-mineralGold-300 transition-colors" data-i18n="nav_contacts">Визитка и контакты</a>
+      </nav>
+
+      <!-- Переключатель языка + быстрые переходы -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <div class="inline-flex items-center p-0.5 rounded-md bg-malachite-900 border hairline-dark" role="group" aria-label="Выбор языка">
+          <button id="btn-ru" type="button" onclick="setLanguage('ru')" class="px-2.5 py-1 rounded text-xs font-semibold tracking-wider transition-colors bg-mineralGold-400 text-malachite-950">RU</button>
+          <button id="btn-uz" type="button" onclick="setLanguage('uz')" class="px-2.5 py-1 rounded text-xs font-semibold tracking-wider transition-colors text-quartz/75 hover:text-quartz">UZ</button>
+          <button id="btn-en" type="button" onclick="setLanguage('en')" class="px-2.5 py-1 rounded text-xs font-semibold tracking-wider transition-colors text-quartz/75 hover:text-quartz">EN</button>
+        </div>
+
+        <a href="#contacts" class="hidden sm:inline-flex items-center px-4 py-2 rounded-md text-xs font-semibold uppercase tracking-wider bg-mineralGold-400 hover:bg-mineralGold-300 text-malachite-950 transition-colors" data-i18n="nav_cta">
+          Связаться
+        </a>
+
+        <!-- Кнопка мобильного меню -->
+        <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-md border hairline-dark text-quartz hover:text-mineralGold-300 transition-colors" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path id="mobile-menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div id="mobile-nav" class="hidden lg:hidden border-t hairline-dark bg-malachite-950">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm">
+        <a href="#services" onclick="closeMobileMenu()" class="py-1.5 text-quartz/90 hover:text-mineralGold-300" data-i18n="nav_services">Направления</a>
+        <a href="#approach" onclick="closeMobileMenu()" class="py-1.5 text-quartz/90 hover:text-mineralGold-300" data-i18n="nav_approach">Подход</a>
+        <a href="#positioning" onclick="closeMobileMenu()" class="py-1.5 text-quartz/90 hover:text-mineralGold-300" data-i18n="nav_positioning">Позиционирование</a>
+        <a href="#contacts" onclick="closeMobileMenu()" class="py-1.5 text-quartz/90 hover:text-mineralGold-300" data-i18n="nav_contacts">Визитка и контакты</a>
+        <div class="pt-3 mt-1 border-t hairline-dark flex flex-wrap gap-2.5">
+          <a href="https://wa.me/998909923259" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md text-xs font-semibold bg-emerald-900/70 text-emerald-200 border border-emerald-500/35">
+            WhatsApp ↗
+          </a>
+          <a href="https://t.me/geoscience_consulting" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md text-xs font-semibold bg-sky-950/80 text-sky-200 border border-sky-400/35">
+            Telegram ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO-СЕКЦИЯ (Глубокий малахит + статические топографические изогипсы) -->
+    <section class="relative bg-malachite-950 text-quartz overflow-hidden border-b hairline-dark">
+      <!-- Спокойные топографические линии рельефа -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 1440 760" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#C5A256" stroke-width="1" stroke-opacity="0.45">
+          <path d="M960 -40 C1070 70, 990 190, 1090 300 C1190 410, 980 510, 1050 660 C1110 780, 1210 810, 1180 860"/>
+          <path d="M1015 -40 C1125 85, 1045 205, 1145 315 C1245 425, 1035 525, 1105 675 C1165 795, 1265 825, 1235 860"/>
+          <path d="M1070 -40 C1180 100, 1100 220, 1200 330 C1300 440, 1090 540, 1160 690 C1220 810, 1320 840, 1290 860"/>
+          <path d="M1130 -40 C1240 115, 1160 235, 1260 345 C1360 455, 1150 555, 1220 705"/>
+          <path d="M-80 340 C50 380, 120 490, 50 610 C-10 710, 90 780, 60 840" stroke-opacity="0.28"/>
+          <path d="M-115 385 C15 425, 85 535, 15 655 C-45 755, 55 825, 25 840" stroke-opacity="0.22"/>
+        </g>
+      </svg>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 sm:pt-20 sm:pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          <!-- Левая часть: ключевой смысл -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2.5 text-xs uppercase tracking-[0.22em] text-mineralGold-300 font-semibold">
+              <span class="w-5 h-px bg-mineralGold-400"></span>
+              <span data-i18n="hero_badge">Научный геологический консалтинг</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight leading-[1.08] text-quartz" data-i18n="hero_title">
+              Геологическая экспертиза и научный консалтинг — без посредников
+            </h1>
+
+            <p class="text-base sm:text-lg text-quartz/80 leading-relaxed max-w-2xl" data-i18n="hero_lead">
+              Гранты для учёных и НИИ, независимые экспертные заключения для средних и небольших компаний и научно-методическая поддержка диссертаций PhD/DSc — от доктора наук, который лично ведёт каждый проект.
+            </p>
+
+            <!-- Блок специализации эксперта -->
+            <div class="border-l-2 border-mineralGold-400 pl-5 py-1 space-y-1">
+              <p class="font-serif text-2xl font-semibold text-quartz" data-i18n="expert_name">
+                Рустам Абдухатович Халматов, <span class="text-mineralGold-300">DSc</span>
+              </p>
+              <p class="text-sm sm:text-[15px] text-quartz/75 leading-relaxed" data-i18n="expert_spec">
+                Геология, минералогия, геохимия — благородные, редкоземельные элементы и критическое сырьё
+              </p>
+            </div>
+
+            <!-- Основные действия и прямые переходы на визитку / мессенджеры -->
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a href="#contacts" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md text-sm font-semibold bg-mineralGold-400 hover:bg-mineralGold-300 text-malachite-950 transition-colors">
+                <span data-i18n="btn_consult">Обсудить задачу</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+
+              <a href="https://wa.me/998909923259" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md text-sm font-medium bg-malachite-900 hover:bg-malachite-800 text-quartz border hairline-dark transition-colors">
+                <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.031 2C6.508 2 2.016 6.492 2.016 12.015c0 1.766.462 3.49 1.339 5.008L2 22l5.106-1.339a9.975 9.975 0 0 0 4.925 1.298h.004c5.522 0 10.015-4.493 10.015-10.016C22.05 6.492 17.554 2 12.031 2zm5.822 14.132c-.244.687-1.425 1.312-1.964 1.394-.502.075-1.153.106-1.862-.119-.431-.138-.984-.322-1.693-.628-2.978-1.285-4.924-4.294-5.074-4.494-.149-.199-1.21-1.61-1.21-3.071 0-1.461.765-2.179 1.036-2.478.272-.299.593-.374.791-.374.198 0 .396.002.569.01.183.009.428-.069.67.512.248.597.841 2.058.916 2.208.074.149.124.324.025.523-.099.199-.149.324-.297.498-.149.174-.313.389-.446.523-.149.149-.304.311-.13.61.173.299.772 1.275 1.658 2.065 1.14 1.016 2.101 1.331 2.4 1.481.298.149.472.124.646-.075.173-.199.744-.868.943-1.167.198-.299.396-.249.669-.149.272.099 1.733.817 2.03.966.298.149.496.224.57.349.075.125.075.722-.169 1.409z"/>
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+
+              <a href="https://t.me/geoscience_consulting" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md text-sm font-medium bg-malachite-900 hover:bg-malachite-800 text-quartz border hairline-dark transition-colors">
+                <svg class="w-4 h-4 text-sky-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <span data-i18n="btn_telegram">Telegram-канал</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Правая часть: эмблема кристалла и паспорт практики -->
+          <div class="lg:col-span-5">
+            <div class="bg-malachite-900/90 border hairline-dark rounded-xl p-7 sm:p-8">
+              <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-mineralGold-300/80 pb-5 border-b hairline-dark">
+                <span>KHALMATOV GEOSCIENCE</span>
+                <span data-i18n="location_short">Ташкент · Узбекистан</span>
+              </div>
+
+              <div class="py-8 flex justify-center">
+                <svg viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-40 h-40 sm:w-48 sm:h-48" aria-label="Эмблема Khalmatov Geoscience Consulting">
+                  <defs>
+                    <linearGradient id="goldTL" x1="30" y1="30" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#E8CF92"/>
+                      <stop offset="100%" stop-color="#B58E3E"/>
+                    </linearGradient>
+                    <linearGradient id="goldTR" x1="230" y1="30" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#D2AF63"/>
+                      <stop offset="100%" stop-color="#8B6A27"/>
+                    </linearGradient>
+                    <linearGradient id="goldBL" x1="30" y1="230" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#C6A153"/>
+                      <stop offset="100%" stop-color="#7A5B1F"/>
+                    </linearGradient>
+                    <linearGradient id="goldBR" x1="230" y1="230" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#A37E34"/>
+                      <stop offset="100%" stop-color="#5B4214"/>
+                    </linearGradient>
+                    <linearGradient id="goldCenter" x1="80" y1="80" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#F1DFB0"/>
+                      <stop offset="55%" stop-color="#CCA657"/>
+                      <stop offset="100%" stop-color="#A37E34"/>
+                    </linearGradient>
+                  </defs>
+                  <polygon points="130,14 246,130 182,130 130,78" fill="url(#goldTR)"/>
+                  <polygon points="130,14 130,78 78,130 14,130" fill="url(#goldTL)"/>
+                  <polygon points="14,130 78,130 130,182 130,246" fill="url(#goldBL)"/>
+                  <polygon points="246,130 130,246 130,182 182,130" fill="url(#goldBR)"/>
+                  <polygon points="130,78 182,130 130,182 78,130" fill="url(#goldCenter)" stroke="#F5F1E8" stroke-width="3" stroke-linejoin="round"/>
+                  <polygon points="130,14 246,130 130,246 14,130" stroke="#F5F1E8" stroke-width="3.6" stroke-linejoin="round"/>
+                  <line x1="130" y1="14" x2="130" y2="78" stroke="#F5F1E8" stroke-width="2.6"/>
+                  <line x1="130" y1="182" x2="130" y2="246" stroke="#F5F1E8" stroke-width="2.6"/>
+                  <line x1="14" y1="130" x2="78" y2="130" stroke="#F5F1E8" stroke-width="2.6"/>
+                  <line x1="182" y1="130" x2="246" y2="130" stroke="#F5F1E8" stroke-width="2.6"/>
+                  <line x1="130" y1="14" x2="78" y2="130" stroke="#F5F1E8" stroke-width="1.3" stroke-opacity="0.72"/>
+                  <line x1="130" y1="14" x2="182" y2="130" stroke="#F5F1E8" stroke-width="1.3" stroke-opacity="0.72"/>
+                  <line x1="130" y1="246" x2="78" y2="130" stroke="#F5F1E8" stroke-width="1.3" stroke-opacity="0.72"/>
+                  <line x1="130" y1="246" x2="182" y2="130" stroke="#F5F1E8" stroke-width="1.3" stroke-opacity="0.72"/>
+                </svg>
+              </div>
+
+              <div class="pt-5 border-t hairline-dark space-y-3 text-center">
+                <p class="font-serif italic text-xl text-mineralGold-300" data-i18n="hero_slogan">
+                  «Знания для ресурсного будущего»
+                </p>
+                <p class="text-xs tracking-[0.18em] uppercase text-quartz/65">
+                  Au · Ag · PGE · REE · CRM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Строка регалий и статуса эксперта (всё из предоставленных документов) -->
+        <div class="mt-12 pt-7 border-t hairline-dark grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-sm">
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-mineralGold-300/80 mb-1" data-i18n="cred1_label">Учёная степень</p>
+            <p class="text-quartz/90 leading-snug" data-i18n="cred1_val">Доктор наук (DSc) в области геологии и минералогии</p>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-mineralGold-300/80 mb-1" data-i18n="cred2_label">Гранты и сотрудничество</p>
+            <p class="text-quartz/90 leading-snug" data-i18n="cred2_val">Руководитель отдела международного научного сотрудничества и грантов</p>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-mineralGold-300/80 mb-1" data-i18n="cred3_label">Международная экспертиза</p>
+            <p class="text-quartz/90 leading-snug" data-i18n="cred3_val">Эксперт UNECE по критическому сырью и зелёной экономике</p>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-mineralGold-300/80 mb-1" data-i18n="cred4_label">Формат работы</p>
+            <p class="text-quartz/90 leading-snug" data-i18n="cred4_val">Личное ведение каждого проекта, без агентской цепочки</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ 1: НАПРАВЛЕНИЯ РАБОТЫ (Редакционный структурированный список) -->
+    <section id="services" class="py-16 sm:py-24 bg-quartz">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12 sm:mb-14">
+          <p class="text-xs uppercase tracking-[0.22em] text-mineralGold-600 font-semibold mb-2.5" data-i18n="services_kicker">
+            Направления работы
+          </p>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold text-ink-900 leading-tight" data-i18n="services_title">
+            Три области, одна профильная экспертиза
+          </h2>
+        </div>
+
+        <div class="border-t hairline-light divide-y divide-ink-900/[0.12]">
+          <!-- 01. Грантовый консалтинг -->
+          <article class="py-9 sm:py-11 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-3 mb-2.5">
+                <span class="text-xs font-semibold tracking-[0.2em] text-mineralGold-600">01</span>
+                <span class="h-px w-8 bg-mineralGold-500/50"></span>
+                <span class="text-xs font-medium tracking-wider uppercase text-ink-500">JSPS · GSA · IGCP/UNESCO</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-[28px] font-semibold text-ink-900 leading-snug" data-i18n="card1_title">
+                Грантовый консалтинг для учёных и НИИ
+              </h3>
+            </div>
+            <div class="lg:col-span-7 space-y-4">
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card1_p1">
+                Не стартап-гранты и не Horizon Europe для бизнеса — специализация именно на научных и академических заявках: <strong class="font-semibold text-ink-900">JSPS, GSA, IGCP/UNESCO</strong> для исследователей и НИИ Центральной Азии.
+              </p>
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card1_p2">
+                Подготовка заявки так, как её видит рецензент, а не только заполнение формы — от эксперта, который сам много лет работает по другую сторону процесса.
+              </p>
+              <div class="pt-1">
+                <a href="#contacts" onclick="selectTopic('grants')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-mineralGold-600 hover:text-malachite-900 transition-colors">
+                  <span data-i18n="card_action">Обсудить задачу</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. Геологическая и минералогическая экспертиза -->
+          <article class="py-9 sm:py-11 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-3 mb-2.5">
+                <span class="text-xs font-semibold tracking-[0.2em] text-mineralGold-600">02</span>
+                <span class="h-px w-8 bg-mineralGold-500/50"></span>
+                <span class="text-xs font-medium tracking-wider uppercase text-ink-500">Au · Ag · PGE · REE · CRM</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-[28px] font-semibold text-ink-900 leading-snug" data-i18n="card2_title">
+                Геологическая и минералогическая экспертиза
+              </h3>
+            </div>
+            <div class="lg:col-span-7 space-y-4">
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card2_p1">
+                Специализация — <strong class="font-semibold text-ink-900">благородные, редкоземельные элементы и критическое сырьё</strong>: независимая оценка перспективности участков и превью геологоразведочных отчётов для средних и небольших компаний.
+              </p>
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card2_p2">
+                Быстрое, доступное по цене персональное заключение для due diligence и внутренних решений — без месяцев ожидания, команды из пяти человек и трёхуровневого согласования крупной фирмы.
+              </p>
+              <div class="pt-1">
+                <a href="#contacts" onclick="selectTopic('expertise')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-mineralGold-600 hover:text-malachite-900 transition-colors">
+                  <span data-i18n="card_action">Обсудить задачу</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. Консультации по диссертациям PhD/DSc -->
+          <article class="py-9 sm:py-11 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-3 mb-2.5">
+                <span class="text-xs font-semibold tracking-[0.2em] text-mineralGold-600">03</span>
+                <span class="h-px w-8 bg-mineralGold-500/50"></span>
+                <span class="text-xs font-medium tracking-wider uppercase text-ink-500" data-i18n="card3_tag">PhD / DSc · ВАК</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-[28px] font-semibold text-ink-900 leading-snug" data-i18n="card3_title">
+                Научно-методические консультации по диссертациям PhD/DSc
+              </h3>
+            </div>
+            <div class="lg:col-span-7 space-y-4">
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card3_p1">
+                Разбор структуры, логики изложения, методологии и соответствия требованиям ВАК — <strong class="font-semibold text-ink-900">не написание работы «под ключ»</strong>. Прозрачная и добросовестная работа с исследованием, которое ведёт сам соискатель.
+              </p>
+              <p class="text-[15.5px] sm:text-base text-ink-700 leading-relaxed" data-i18n="card3_p2">
+                Научное редактирование с глубоким погружением в предмет (геология, минералогия, геохимия), а не только правка текста и оформления.
+              </p>
+              <div class="pt-1">
+                <a href="#contacts" onclick="selectTopic('dissertation')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-mineralGold-600 hover:text-malachite-900 transition-colors">
+                  <span data-i18n="card_action">Обсудить задачу</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ 2: ЧЕМ ОТЛИЧАЕТСЯ ПОДХОД + ПРИНЦИП ЭКСПЕРТИЗЫ -->
+    <section id="approach" class="py-16 sm:py-24 bg-stonePaper border-y hairline-light">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+          <!-- Левая часть: 4 контрастных принципа -->
+          <div class="lg:col-span-7">
+            <p class="text-xs uppercase tracking-[0.22em] text-mineralGold-600 font-semibold mb-2.5" data-i18n="diff_kicker">
+              Чем отличается формат
+            </p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-ink-900 mb-8 leading-tight" data-i18n="diff_title">
+              Не стандартное агентство, а личная практика учёного
+            </h2>
+
+            <div class="border-t hairline-light divide-y divide-ink-900/[0.12]">
+              <div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 gap-1.5 sm:gap-4 items-baseline">
+                <span class="sm:col-span-5 text-sm text-ink-500 line-through decoration-ink-500/60" data-i18n="diff1_no">Агентство с цепочкой менеджеров</span>
+                <span class="sm:col-span-7 text-[15.5px] font-medium text-ink-900 flex items-baseline gap-2.5">
+                  <span class="text-mineralGold-600 font-semibold" aria-hidden="true">→</span>
+                  <span data-i18n="diff1_yes">Один эксперт ведёт проект от начала до конца</span>
+                </span>
+              </div>
+
+              <div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 gap-1.5 sm:gap-4 items-baseline">
+                <span class="sm:col-span-5 text-sm text-ink-500 line-through decoration-ink-500/60" data-i18n="diff2_no">Гранты для стартапов и бизнеса</span>
+                <span class="sm:col-span-7 text-[15.5px] font-medium text-ink-900 flex items-baseline gap-2.5">
+                  <span class="text-mineralGold-600 font-semibold" aria-hidden="true">→</span>
+                  <span data-i18n="diff2_yes">Специализация на научных грантах для учёных и НИИ</span>
+                </span>
+              </div>
+
+              <div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 gap-1.5 sm:gap-4 items-baseline">
+                <span class="sm:col-span-5 text-sm text-ink-500 line-through decoration-ink-500/60" data-i18n="diff3_no">Месяцы ожидания крупной фирмы</span>
+                <span class="sm:col-span-7 text-[15.5px] font-medium text-ink-900 flex items-baseline gap-2.5">
+                  <span class="text-mineralGold-600 font-semibold" aria-hidden="true">→</span>
+                  <span data-i18n="diff3_yes">Быстрая и доступная персональная экспертиза</span>
+                </span>
+              </div>
+
+              <div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 gap-1.5 sm:gap-4 items-baseline">
+                <span class="sm:col-span-5 text-sm text-ink-500 line-through decoration-ink-500/60" data-i18n="diff4_no">Написание диссертации «под ключ»</span>
+                <span class="sm:col-span-7 text-[15.5px] font-medium text-ink-900 flex items-baseline gap-2.5">
+                  <span class="text-mineralGold-600 font-semibold" aria-hidden="true">→</span>
+                  <span data-i18n="diff4_yes">Методическая консультация и разбор содержания</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая часть: цитата и ключевое позиционирование -->
+          <div class="lg:col-span-5 lg:pt-8 space-y-6">
+            <div class="bg-quartz border hairline-light rounded-xl p-7 sm:p-8">
+              <div class="w-8 h-0.5 bg-mineralGold-500 mb-5"></div>
+              <blockquote class="font-serif italic text-2xl sm:text-[26px] text-ink-900 leading-snug" data-i18n="quote_text">
+                «Независимый экспертный взгляд, который помогает видеть то, что теряется среди отчётов, анализов и предположений»
+              </blockquote>
+              <p class="mt-5 pt-4 border-t hairline-light text-sm text-ink-700 leading-relaxed" data-i18n="positioning_key_msg">
+                Не международная бюрократия и не безымянный фрилансер — а учёный с профильной степенью DSc и реальным опытом международного научного сотрудничества, который лично ведёт каждый проект.
+              </p>
+              <p class="mt-4 text-xs uppercase tracking-[0.18em] text-mineralGold-600 font-semibold" data-i18n="quote_author">
+                Рустам Абдухатович Халматов, DSc
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ 3: ПОЗИЦИОНИРОВАНИЕ НА РЫНКЕ (Из файла Позиционирование.docx) -->
+    <section id="positioning" class="py-16 sm:py-24 bg-quartz">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div class="max-w-2xl">
+            <p class="text-xs uppercase tracking-[0.22em] text-mineralGold-600 font-semibold mb-2.5" data-i18n="pos_kicker">
+              Позиционирование на рынке
+            </p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-ink-900 leading-tight" data-i18n="pos_title">
+              Сравнение с другими участниками рынка
+            </h2>
+          </div>
+
+          <!-- Вкладки по 3 направлениям -->
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="Направления сравнения">
+            <button type="button" role="tab" id="tab-grants" aria-selected="true" aria-controls="panel-grants" onclick="switchPosTab('grants')" class="tab-btn px-4 py-2 rounded-md border text-xs sm:text-sm font-medium" data-i18n="pos_tab1">
+              01 · Грантовый консалтинг
+            </button>
+            <button type="button" role="tab" id="tab-expertise" aria-selected="false" aria-controls="panel-expertise" onclick="switchPosTab('expertise')" class="tab-btn px-4 py-2 rounded-md border text-xs sm:text-sm font-medium" data-i18n="pos_tab2">
+              02 · Геологическая экспертиза
+            </button>
+            <button type="button" role="tab" id="tab-dissertation" aria-selected="false" aria-controls="panel-dissertation" onclick="switchPosTab('dissertation')" class="tab-btn px-4 py-2 rounded-md border text-xs sm:text-sm font-medium" data-i18n="pos_tab3">
+              03 · Диссертации PhD/DSc
+            </button>
+          </div>
+        </div>
+
+        <!-- Панель 1: Грантовый консалтинг -->
+        <div id="panel-grants" role="tabpanel" aria-labelledby="tab-grants" class="pos-panel is-active">
+          <div class="border hairline-light rounded-xl overflow-hidden bg-white/55">
+            <div class="hidden md:grid grid-cols-12 bg-stonePaper/80 border-b hairline-light text-xs uppercase tracking-[0.16em] font-semibold text-ink-700">
+              <div class="col-span-3 px-6 py-4" data-i18n="col_player">Тип участника рынка</div>
+              <div class="col-span-4 px-6 py-4 border-l hairline-light" data-i18n="col_they">Что предлагают они</div>
+              <div class="col-span-5 px-6 py-4 border-l hairline-light text-mineralGold-600" data-i18n="col_me">Отличие практики Р.А. Халматова</div>
+            </div>
+
+            <div class="divide-y divide-ink-900/[0.12]">
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p1_r1_c1">Международные EU-консалтинговые фирмы (ScienceDocs, UpGrants и др.)</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p1_r1_c2">Работают преимущественно с Horizon Europe и коммерческими/deep-tech грантами для стартапов; базируются в Европе, без специализации на постсоветских НИИ и академических заявках.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p1_r1_c3">Специализация именно на научных грантах (JSPS, GSA, IGCP/UNESCO) для учёных и НИИ Центральной Азии; личный опыт международного сотрудничества и понимание специфики региона.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p1_r2_c1">Локальные бизнес-консалтинговые фирмы Узбекистана</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p1_r2_c2">Общий бизнес-консалтинг: регистрация компаний, бухгалтерия, бизнес-планы — гранты для науки не их профиль.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p1_r2_c3">Профильная научная экспертиза (DSc, геология/геохимия) и опыт руководства отделом международного сотрудничества и грантов — понимание процесса изнутри, а не только формы заявки.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель 2: Геологическая и минералогическая экспертиза -->
+        <div id="panel-expertise" role="tabpanel" aria-labelledby="tab-expertise" class="pos-panel">
+          <div class="border hairline-light rounded-xl overflow-hidden bg-white/55">
+            <div class="hidden md:grid grid-cols-12 bg-stonePaper/80 border-b hairline-light text-xs uppercase tracking-[0.16em] font-semibold text-ink-700">
+              <div class="col-span-3 px-6 py-4" data-i18n="col_player">Тип участника рынка</div>
+              <div class="col-span-4 px-6 py-4 border-l hairline-light" data-i18n="col_they">Что предлагают они</div>
+              <div class="col-span-5 px-6 py-4 border-l hairline-light text-mineralGold-600" data-i18n="col_me">Отличие практики Р.А. Халматова</div>
+            </div>
+
+            <div class="divide-y divide-ink-900/[0.12]">
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p2_r1_c1">Крупные международные компании (SRK Consulting и аналоги)</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p2_r1_c2">Комплексные услуги для крупных проектов и международных инвесторов; высокая стоимость, длительные сроки, ориентация на масштаб.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p2_r1_c3">Быстрая, персональная и доступная по цене экспертиза для средних и небольших компаний — без накладных расходов крупной международной структуры.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p2_r2_c1">Государственные институты и экспертиза</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p2_r2_c2">Официальная экспертиза в рамках регламентированных процедур недропользования; не работает в формате оперативного частного консалтинга.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p2_r2_c3">Независимое экспертное мнение вне государственных процедур — для due diligence, внутренних решений и предварительной оценки, где скорость и гибкость важнее формальной процедуры.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Панель 3: Консультации по диссертациям PhD/DSc -->
+        <div id="panel-dissertation" role="tabpanel" aria-labelledby="tab-dissertation" class="pos-panel">
+          <div class="border hairline-light rounded-xl overflow-hidden bg-white/55">
+            <div class="hidden md:grid grid-cols-12 bg-stonePaper/80 border-b hairline-light text-xs uppercase tracking-[0.16em] font-semibold text-ink-700">
+              <div class="col-span-3 px-6 py-4" data-i18n="col_player">Тип участника рынка</div>
+              <div class="col-span-4 px-6 py-4 border-l hairline-light" data-i18n="col_they">Что предлагают они</div>
+              <div class="col-span-5 px-6 py-4 border-l hairline-light text-mineralGold-600" data-i18n="col_me">Отличие практики Р.А. Халматова</div>
+            </div>
+
+            <div class="divide-y divide-ink-900/[0.12]">
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p3_r1_c1">Сервисы «под ключ» (написание диссертаций на заказ)</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p3_r1_c2">Фактически ghostwriting — работа пишется третьим лицом за соискателя; риски для академической репутации и добросовестности.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p3_r1_c3">Только методическая консультация и разбор: соискатель сам ведёт исследование, эксперт помогает с методологией, структурой и соответствием требованиям — прозрачно и добросовестно.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-12">
+                <div class="md:col-span-3 p-5 sm:p-6 bg-stonePaper/30 md:bg-transparent">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_player">Тип участника рынка</p>
+                  <p class="font-semibold text-ink-900 text-[15px] leading-snug" data-i18n="p3_r2_c1">Отдельные «научные редакторы»</p>
+                </div>
+                <div class="md:col-span-4 p-5 sm:p-6 md:border-l hairline-light text-sm text-ink-700 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-ink-500 mb-1" data-i18n="col_they">Что предлагают они</p>
+                  <p data-i18n="p3_r2_c2">Общая доработка текста и оформления, без глубокой экспертизы в конкретной научной области.</p>
+                </div>
+                <div class="md:col-span-5 p-5 sm:p-6 md:border-l hairline-light bg-malachite-950/[0.03] text-sm text-ink-900 leading-relaxed">
+                  <p class="md:hidden text-[11px] uppercase tracking-wider text-mineralGold-600 font-semibold mb-1" data-i18n="col_me">Отличие практики Р.А. Халматова</p>
+                  <p data-i18n="p3_r2_c3">Экспертиза именно в геологии, минералогии и геохимии — содержательная, а не только текстовая помощь от специалиста с профильной степенью DSc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ 4: ЦИФРОВАЯ ВИЗИТКА, ПРЯМЫЕ КАНАЛЫ И ФОРМА ОБРАЩЕНИЯ -->
+    <section id="contacts" class="py-16 sm:py-24 bg-malachite-950 text-quartz border-t hairline-dark">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="text-xs uppercase tracking-[0.22em] text-mineralGold-300 font-semibold mb-2.5" data-i18n="contacts_kicker">
+            Прямой диалог с экспертом
+          </p>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold text-quartz leading-tight" data-i18n="contacts_title">
+            Визитка и обращение
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          <!-- Левая колонка: Цифровая визитка со всеми рабочими ссылками -->
+          <div class="lg:col-span-5 bg-malachite-900 border hairline-dark rounded-xl p-7 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3.5 pb-6 border-b hairline-dark">
+                <div class="w-11 h-11 flex-shrink-0">
+                  <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
+                    <polygon points="60,6 112,60 60,114 8,60" fill="#B68F40" stroke="#F5F1E8" stroke-width="3"/>
+                    <polygon points="60,36 84,60 60,84 36,60" fill="#D5B670" stroke="#F5F1E8" stroke-width="2.2"/>
+                    <line x1="60" y1="6" x2="60" y2="36" stroke="#F5F1E8" stroke-width="2"/>
+                    <line x1="60" y1="84" x2="60" y2="114" stroke="#F5F1E8" stroke-width="2"/>
+                    <line x1="8" y1="60" x2="36" y2="60" stroke="#F5F1E8" stroke-width="2"/>
+                    <line x1="84" y1="60" x2="112" y2="60" stroke="#F5F1E8" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-bold tracking-wide text-quartz">KHALMATOV</h3>
+                  <p class="text-[11px] uppercase tracking-[0.2em] text-mineralGold-300">Geoscience Consulting</p>
+                </div>
+              </div>
+
+              <div class="mt-6 space-y-5">
+                <!-- Телефон -->
+                <div>
+                  <span class="block text-[11px] uppercase tracking-[0.18em] text-quartz/55 mb-1.5" data-i18n="contact_phone_label">
+                    Телефон / WhatsApp
+                  </span>
+                  <a href="tel:+998909923259" class="text-lg sm:text-xl font-semibold text-quartz hover:text-mineralGold-300 transition-colors">
+                    +998 90 992 32 59
+                  </a>
+                </div>
+
+                <!-- Email + копирование -->
+                <div>
+                  <span class="block text-[11px] uppercase tracking-[0.18em] text-quartz/55 mb-1.5">Email</span>
+                  <div class="flex flex-wrap items-center gap-2.5">
+                    <a href="mailto:khalmatovrustam@gmail.com" class="text-[15.5px] font-medium text-mineralGold-300 hover:underline break-all">
+                      khalmatovrustam@gmail.com
+                    </a>
+                    <button type="button" onclick="copyEmail()" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-malachite-800 hover:bg-malachite-700 text-quartz/90 border hairline-dark transition-colors">
+                      <svg class="w-3.5 h-3.5 text-mineralGold-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                      </svg>
+                      <span id="copy-btn-text" data-i18n="copy_email">Скопировать</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Крупные рабочие кнопки на WhatsApp и Telegram-канал -->
+                <div class="pt-1 space-y-2.5">
+                  <span class="block text-[11px] uppercase tracking-[0.18em] text-quartz/55" data-i18n="contact_channels_label">
+                    Прямые каналы связи
+                  </span>
+
+                  <a href="https://wa.me/998909923259" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between px-4 py-3 rounded-md bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/35 text-emerald-100 text-sm font-semibold transition-colors">
+                    <span class="inline-flex items-center gap-2.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12.031 2C6.508 2 2.016 6.492 2.016 12.015c0 1.766.462 3.49 1.339 5.008L2 22l5.106-1.339a9.975 9.975 0 0 0 4.925 1.298h.004c5.522 0 10.015-4.493 10.015-10.016C22.05 6.492 17.554 2 12.031 2zm5.822 14.132c-.244.687-1.425 1.312-1.964 1.394-.502.075-1.153.106-1.862-.119-.431-.138-.984-.322-1.693-.628-2.978-1.285-4.924-4.294-5.074-4.494-.149-.199-1.21-1.61-1.21-3.071 0-1.461.765-2.179 1.036-2.478.272-.299.593-.374.791-.374.198 0 .396.002.569.01.183.009.428-.069.67.512.248.597.841 2.058.916 2.208.074.149.124.324.025.523-.099.199-.149.324-.297.498-.149.174-.313.389-.446.523-.149.149-.304.311-.13.61.173.299.772 1.275 1.658 2.065 1.14 1.016 2.101 1.331 2.4 1.481.298.149.472.124.646-.075.173-.199.744-.868.943-1.167.198-.299.396-.249.669-.149.272.099 1.733.817 2.03.966.298.149.496.224.57.349.075.125.075.722-.169 1.409z"/>
+                      </svg>
+                      <span data-i18n="card_wa_btn">Написать в WhatsApp</span>
+                    </span>
+                    <span class="text-xs text-emerald-300">↗</span>
+                  </a>
+
+                  <a href="https://t.me/geoscience_consulting" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between px-4 py-3 rounded-md bg-sky-950/75 hover:bg-sky-900/75 border border-sky-400/35 text-sky-100 text-sm font-semibold transition-colors">
+                    <span class="inline-flex items-center gap-2.5">
+                      <svg class="w-4 h-4 text-sky-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
+                      <span>t.me/geoscience_consulting</span>
+                    </span>
+                    <span class="text-xs text-sky-300">↗</span>
+                  </a>
+                </div>
+
+                <!-- Локация -->
+                <div class="pt-1">
+                  <span class="block text-[11px] uppercase tracking-[0.18em] text-quartz/55 mb-1" data-i18n="contact_loc_label">Локация</span>
+                  <p class="text-sm text-quartz/85" data-i18n="contact_loc_val">Ташкент, Узбекистан</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-5 border-t hairline-dark">
+              <p class="font-serif italic text-base text-mineralGold-300" data-i18n="card_motto">
+                «Знания для ресурсного будущего»
+              </p>
+            </div>
+          </div>
+
+          <!-- Правая колонка: Форма прямого обращения (генерирует готовое сообщение в WhatsApp или Email) -->
+          <div class="lg:col-span-7 bg-malachite-900 border hairline-dark rounded-xl p-7 sm:p-8">
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-quartz mb-2" data-i18n="form_title">
+              Запрос на научную консультацию
+            </h3>
+            <p class="text-sm text-quartz/75 mb-6 leading-relaxed" data-i18n="form_subtitle">
+              Опишите задачу, участок, грантовый фонд или тему диссертационного исследования — отвечу лично и предложу формат работы.
+            </p>
+
+            <form id="consultation-form" onsubmit="handleWhatsAppSubmit(event)" class="space-y-4">
+              <div>
+                <label for="topic-select" class="block text-xs uppercase tracking-[0.16em] text-mineralGold-300 font-semibold mb-2" data-i18n="form_topic_label">
+                  Направление консультации
+                </label>
+                <select id="topic-select" name="topic" class="w-full px-4 py-3 rounded-md bg-malachite-950 border hairline-dark text-quartz text-sm focus:border-mineralGold-400">
+                  <option value="grants" data-i18n="opt_grants">Грантовый консалтинг (JSPS, GSA, IGCP/UNESCO)</option>
+                  <option value="expertise" data-i18n="opt_expertise">Геологическая и минералогическая экспертиза (Au, REE, критическое сырьё)</option>
+                  <option value="dissertation" data-i18n="opt_dissertation">Консультация по диссертации PhD / DSc</option>
+                </select>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="sender-name" class="block text-xs uppercase tracking-[0.16em] text-quartz/75 font-semibold mb-2" data-i18n="form_name_label">
+                    Ваше имя / организация
+                  </label>
+                  <input id="sender-name" type="text" required placeholder="Имя, организация" data-i18n-placeholder="form_name_ph" class="w-full px-4 py-3 rounded-md bg-malachite-950 border hairline-dark text-quartz placeholder-quartz/35 text-sm focus:border-mineralGold-400" />
+                </div>
+
+                <div>
+                  <label for="sender-contact" class="block text-xs uppercase tracking-[0.16em] text-quartz/75 font-semibold mb-2" data-i18n="form_contact_label">
+                    Email или Telegram / WhatsApp
+                  </label>
+                  <input id="sender-contact" type="text" required placeholder="name@institute.org / @username" data-i18n-placeholder="form_contact_ph" class="w-full px-4 py-3 rounded-md bg-malachite-950 border hairline-dark text-quartz placeholder-quartz/35 text-sm focus:border-mineralGold-400" />
+                </div>
+              </div>
+
+              <div>
+                <label for="sender-message" class="block text-xs uppercase tracking-[0.16em] text-quartz/75 font-semibold mb-2" data-i18n="form_msg_label">
+                  Краткое описание задачи
+                </label>
+                <textarea id="sender-message" rows="4" required placeholder="Укажите цель обращения, сроки или ключевые вопросы..." data-i18n-placeholder="form_msg_ph" class="w-full px-4 py-3 rounded-md bg-malachite-950 border hairline-dark text-quartz placeholder-quartz/35 text-sm focus:border-mineralGold-400 resize-y"></textarea>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-sm bg-mineralGold-400 hover:bg-mineralGold-300 text-malachite-950 transition-colors cursor-pointer">
+                  <span data-i18n="form_submit_wa">Отправить через WhatsApp</span>
+                  <span aria-hidden="true">↗</span>
+                </button>
+
+                <button type="button" onclick="handleEmailSubmit()" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-medium text-sm bg-malachite-800 hover:bg-malachite-700 text-quartz border hairline-dark transition-colors cursor-pointer">
+                  <span data-i18n="form_submit_email">Отправить по Email</span>
+                </button>
+              </div>
+
+              <p class="text-xs text-quartz/55 pt-1" data-i18n="form_privacy">
+                Конфиденциальность научных и геологических материалов гарантируется.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="bg-malachite-950 border-t hairline-dark text-quartz/65">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+      <div>
+        © <span id="current-year">2026</span> KHALMATOV GEOSCIENCE CONSULTING · <span data-i18n="footer_loc">Ташкент, Узбекистан</span>
+      </div>
+      <div class="font-serif italic text-base text-mineralGold-300/90 text-center sm:text-right" data-i18n="footer_slogan">
+        Знания для ресурсного будущего · Resursli kelajak uchun bilim · Knowledge for a Resourceful Tomorrow
+      </div>
+    </div>
+  </footer>
+
+  <!-- УВЕДОМЛЕНИЕ TOAST -->
+  <div id="toast-notification" role="status" aria-live="polite" class="fixed bottom-5 right-5 z-50 max-w-sm transform translate-y-24 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="rounded-lg p-4 bg-malachite-900 border border-mineralGold-400/50 shadow-xl flex items-start gap-3">
+      <div class="w-7 h-7 rounded bg-mineralGold-400/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-mineralGold-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h4 id="toast-title" class="font-semibold text-sm text-quartz">Готово</h4>
+        <p id="toast-body" class="text-xs text-quartz/80 mt-0.5 leading-relaxed"></p>
+      </div>
+      <button type="button" onclick="hideToast()" class="text-quartz/55 hover:text-quartz text-lg leading-none" aria-label="Закрыть">×</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const translations = {
+      ru: {
+        nav_services: 'Направления',
+        nav_approach: 'Подход',
+        nav_positioning: 'Позиционирование',
+        nav_contacts: 'Визитка и контакты',
+        nav_cta: 'Связаться',
+        hero_badge: 'Научный геологический консалтинг',
+        hero_title: 'Геологическая экспертиза и научный консалтинг — без посредников',
+        hero_lead: 'Гранты для учёных и НИИ, независимые экспертные заключения для средних и небольших компаний и научно-методическая поддержка диссертаций PhD/DSc — от доктора наук, который лично ведёт каждый проект.',
+        expert_name: 'Рустам Абдухатович Халматов, <span class="text-mineralGold-300">DSc</span>',
+        expert_spec: 'Геология, минералогия, геохимия — благородные, редкоземельные элементы и критическое сырьё',
+        btn_consult: 'Обсудить задачу',
+        btn_telegram: 'Telegram-канал',
+        location_short: 'Ташкент · Узбекистан',
+        hero_slogan: '«Знания для ресурсного будущего»',
+        cred1_label: 'Учёная степень',
+        cred1_val: 'Доктор наук (DSc) в области геологии и минералогии',
+        cred2_label: 'Гранты и сотрудничество',
+        cred2_val: 'Руководитель отдела международного научного сотрудничества и грантов',
+        cred3_label: 'Международная экспертиза',
+        cred3_val: 'Эксперт UNECE по критическому сырью и зелёной экономике',
+        cred4_label: 'Формат работы',
+        cred4_val: 'Личное ведение каждого проекта, без агентской цепочки',
+        services_kicker: 'Направления работы',
+        services_title: 'Три области, одна профильная экспертиза',
+        card1_title: 'Грантовый консалтинг для учёных и НИИ',
+        card1_p1: 'Не стартап-гранты и не Horizon Europe для бизнеса — специализация именно на научных и академических заявках: <strong class="font-semibold text-ink-900">JSPS, GSA, IGCP/UNESCO</strong> для исследователей и НИИ Центральной Азии.',
+        card1_p2: 'Подготовка заявки так, как её видит рецензент, а не только заполнение формы — от эксперта, который сам много лет работает по другую сторону процесса.',
+        card2_title: 'Геологическая и минералогическая экспертиза',
+        card2_p1: 'Специализация — <strong class="font-semibold text-ink-900">благородные, редкоземельные элементы и критическое сырьё</strong>: независимая оценка перспективности участков и превью геологоразведочных отчётов для средних и небольших компаний.',
+        card2_p2: 'Быстрое, доступное по цене персональное заключение для due diligence и внутренних решений — без месяцев ожидания, команды из пяти человек и трёхуровневого согласования крупной фирмы.',
+        card3_tag: 'PhD / DSc · ВАК',
+        card3_title: 'Научно-методические консультации по диссертациям PhD/DSc',
+        card3_p1: 'Разбор структуры, логики изложения, методологии и соответствия требованиям ВАК — <strong class="font-semibold text-ink-900">не написание работы «под ключ»</strong>. Прозрачная и добросовестная работа с исследованием, которое ведёт сам соискатель.',
+        card3_p2: 'Научное редактирование с глубоким погружением в предмет (геология, минералогия, геохимия), а не только правка текста и оформления.',
+        card_action: 'Обсудить задачу',
+        diff_kicker: 'Чем отличается формат',
+        diff_title: 'Не стандартное агентство, а личная практика учёного',
+        diff1_no: 'Агентство с цепочкой менеджеров',
+        diff1_yes: 'Один эксперт ведёт проект от начала до конца',
+        diff2_no: 'Гранты для стартапов и бизнеса',
+        diff2_yes: 'Специализация на научных грантах для учёных и НИИ',
+        diff3_no: 'Месяцы ожидания крупной фирмы',
+        diff3_yes: 'Быстрая и доступная персональная экспертиза',
+        diff4_no: 'Написание диссертации «под ключ»',
+        diff4_yes: 'Методическая консультация и разбор содержания',
+        quote_text: '«Независимый экспертный взгляд, который помогает видеть то, что теряется среди отчётов, анализов и предположений»',
+        positioning_key_msg: 'Не международная бюрократия и не безымянный фрилансер — а учёный с профильной степенью DSc и реальным опытом международного научного сотрудничества, который лично ведёт каждый проект.',
+        quote_author: 'Рустам Абдухатович Халматов, DSc',
+        pos_kicker: 'Позиционирование на рынке',
+        pos_title: 'Сравнение с другими участниками рынка',
+        pos_tab1: '01 · Грантовый консалтинг',
+        pos_tab2: '02 · Геологическая экспертиза',
+        pos_tab3: '03 · Диссертации PhD/DSc',
+        col_player: 'Тип участника рынка',
+        col_they: 'Что предлагают они',
+        col_me: 'Отличие практики Р.А. Халматова',
+        p1_r1_c1: 'Международные EU-консалтинговые фирмы (ScienceDocs, UpGrants и др.)',
+        p1_r1_c2: 'Работают преимущественно с Horizon Europe и коммерческими/deep-tech грантами для стартапов; базируются в Европе, без специализации на постсоветских НИИ и академических заявках.',
+        p1_r1_c3: 'Специализация именно на научных грантах (JSPS, GSA, IGCP/UNESCO) для учёных и НИИ Центральной Азии; личный опыт международного сотрудничества и понимание специфики региона.',
+        p1_r2_c1: 'Локальные бизнес-консалтинговые фирмы Узбекистана',
+        p1_r2_c2: 'Общий бизнес-консалтинг: регистрация компаний, бухгалтерия, бизнес-планы — гранты для науки не их профиль.',
+        p1_r2_c3: 'Профильная научная экспертиза (DSc, геология/геохимия) и опыт руководства отделом международного сотрудничества и грантов — понимание процесса изнутри, а не только формы заявки.',
+        p2_r1_c1: 'Крупные международные компании (SRK Consulting и аналоги)',
+        p2_r1_c2: 'Комплексные услуги для крупных проектов и международных инвесторов; высокая стоимость, длительные сроки, ориентация на масштаб.',
+        p2_r1_c3: 'Быстрая, персональная и доступная по цене экспертиза для средних и небольших компаний — без накладных расходов крупной международной структуры.',
+        p2_r2_c1: 'Государственные институты и экспертиза',
+        p2_r2_c2: 'Официальная экспертиза в рамках регламентированных процедур недропользования; не работает в формате оперативного частного консалтинга.',
+        p2_r2_c3: 'Независимое экспертное мнение вне государственных процедур — для due diligence, внутренних решений и предварительной оценки, где скорость и гибкость важнее формальной процедуры.',
+        p3_r1_c1: 'Сервисы «под ключ» (написание диссертаций на заказ)',
+        p3_r1_c2: 'Фактически ghostwriting — работа пишется третьим лицом за соискателя; риски для академической репутации и добросовестности.',
+        p3_r1_c3: 'Только методическая консультация и разбор: соискатель сам ведёт исследование, эксперт помогает с методологией, структурой и соответствием требованиям — прозрачно и добросовестно.',
+        p3_r2_c1: 'Отдельные «научные редакторы»',
+        p3_r2_c2: 'Общая доработка текста и оформления, без глубокой экспертизы в конкретной научной области.',
+        p3_r2_c3: 'Экспертиза именно в геологии, минералогии и геохимии — содержательная, а не только текстовая помощь от специалиста с профильной степенью DSc.',
+        contacts_kicker: 'Прямой диалог с экспертом',
+        contacts_title: 'Визитка и обращение',
+        contact_phone_label: 'Телефон / WhatsApp',
+        copy_email: 'Скопировать',
+        copied_email: 'Скопировано',
+        contact_channels_label: 'Прямые каналы связи',
+        card_wa_btn: 'Написать в WhatsApp',
+        contact_loc_label: 'Локация',
+        contact_loc_val: 'Ташкент, Узбекистан',
+        card_motto: '«Знания для ресурсного будущего»',
+        form_title: 'Запрос на научную консультацию',
+        form_subtitle: 'Опишите задачу, участок, грантовый фонд или тему диссертационного исследования — отвечу лично и предложу формат работы.',
+        form_topic_label: 'Направление консультации',
+        opt_grants: 'Грантовый консалтинг (JSPS, GSA, IGCP/UNESCO)',
+        opt_expertise: 'Геологическая и минералогическая экспертиза (Au, REE, критическое сырьё)',
+        opt_dissertation: 'Консультация по диссертации PhD / DSc',
+        form_name_label: 'Ваше имя / организация',
+        form_name_ph: 'Имя, организация',
+        form_contact_label: 'Email или Telegram / WhatsApp',
+        form_contact_ph: 'name@institute.org / @username',
+        form_msg_label: 'Краткое описание задачи',
+        form_msg_ph: 'Укажите цель обращения, сроки или ключевые вопросы...',
+        form_submit_wa: 'Отправить через WhatsApp',
+        form_submit_email: 'Отправить по Email',
+        form_privacy: 'Конфиденциальность научных и геологических материалов гарантируется.',
+        footer_loc: 'Ташкент, Узбекистан',
+        footer_slogan: 'Знания для ресурсного будущего · Resursli kelajak uchun bilim · Knowledge for a Resourceful Tomorrow',
+        toast_copy_title: 'Email скопирован',
+        toast_copy_body: 'Адрес khalmatovrustam@gmail.com скопирован в буфер обмена.',
+        toast_wa_title: 'Переход в WhatsApp',
+        toast_wa_body: 'Текст вашего обращения сформирован для отправки в WhatsApp.',
+        toast_email_title: 'Открыт почтовый клиент',
+        toast_email_body: 'Письмо подготовлено для отправки на khalmatovrustam@gmail.com.',
+        toast_fill_title: 'Заполните поля формы',
+        toast_fill_body: 'Пожалуйста, укажите имя, контакт для связи и краткое описание задачи.'
+      },
+      uz: {
+        nav_services: 'Yoʻnalishlar',
+        nav_approach: 'Yondashuv',
+        nav_positioning: 'Bozordagi oʻrni',
+        nav_contacts: 'Vizitka va kontaktlar',
+        nav_cta: 'Bogʻlanish',
+        hero_badge: 'Ilmiy geologik konsalting',
+        hero_title: 'Geologik ekspertiza va ilmiy konsalting — vositachilarsiz',
+        hero_lead: 'Olimlar va ilmiy-tadqiqot institutlari uchun grantlar, oʻrta va kichik kompaniyalar uchun mustaqil ekspert xulosalari hamda PhD/DSc dissertatsiyalari boʻyicha ilmiy-metodik maslahatlar — har bir loyihani shaxsan olib boradigan fan doktoridan.',
+        expert_name: 'Rustam Abduxatovich Xalmatov, <span class="text-mineralGold-300">DSc</span>',
+        expert_spec: 'Geologiya, mineralogiya, geoximiya — asl metallar, nodir yer elementlari va kritik xomashyo',
+        btn_consult: 'Vazifani muhokama qilish',
+        btn_telegram: 'Telegram-kanal',
+        location_short: 'Toshkent · Oʻzbekiston',
+        hero_slogan: '«Resursli kelajak uchun bilim»',
+        cred1_label: 'Ilmiy daraja',
+        cred1_val: 'Geologiya va mineralogiya sohasida fan doktori (DSc)',
+        cred2_label: 'Grantlar va hamkorlik',
+        cred2_val: 'Xalqaro ilmiy hamkorlik va grantlar boʻlimi rahbari',
+        cred3_label: 'Xalqaro ekspertiza',
+        cred3_val: 'Kritik xomashyo va yashil iqtisodiyot boʻyicha UNECE eksperti',
+        cred4_label: 'Ish formati',
+        cred4_val: 'Har bir loyihani shaxsan olib borish, agentlik zanjirisiz',
+        services_kicker: 'Faoliyat yoʻnalishlari',
+        services_title: 'Uchta yoʻnalish, bitta sohaga ixtisoslashgan ekspertiza',
+        card1_title: 'Olimlar va ilmiy-tadqiqot institutlari uchun grant konsaltingi',
+        card1_p1: 'Startap-grantlar va biznes uchun Horizon Europe emas — aynan Markaziy Osiyo tadqiqotchilari va ITI uchun ilmiy hamda akademik arizalarga ixtisoslik: <strong class="font-semibold text-ink-900">JSPS, GSA, IGCP/UNESCO</strong>.',
+        card1_p2: 'Faqat shakl toʻldirish emas, balki arizani taqrizchi nigohi bilan tayyorlash — koʻp yillar davomida baholash jarayonining boshqa tomonida ishlagan mutaxassisdan.',
+        card2_title: 'Geologik va mineralogik ekspertiza',
+        card2_p1: 'Ixtisoslik — <strong class="font-semibold text-ink-900">asl metallar, nodir yer elementlari va kritik xomashyo</strong>: oʻrta va kichik kompaniyalar uchun maydonlar istiqbolini mustaqil baholash va geologiya-qidiruv hisobotlarini dastlabki koʻrib chiqish.',
+        card2_p2: 'Due diligence va ichki qarorlar uchun tezkor, maqbul narxdagi shaxsiy xulosa — yirik firmaning oylar davom etadigan kutishi, besh kishilik jamoasi va uch bosqichli kelishuvlarisiz.',
+        card3_tag: 'PhD / DSc · OAK',
+        card3_title: 'PhD/DSc dissertatsiyalari boʻyicha ilmiy-metodik maslahatlar',
+        card3_p1: 'Tuzilma, bayon mantigʻi, metodologiya va OAK talablariga muvofiqlik tahlili — <strong class="font-semibold text-ink-900">ishni «tayyor holda» yozib berish emas</strong>. Tadqiqotchining oʻzi olib borayotgan ilmiy ish bilan shaffof va halol ishlash.',
+        card3_p2: 'Faqat matn va rasmiylashtirishni tahrirlash emas, balki fanga (geologiya, mineralogiya, geoximiya) chuqur kirib boradigan ilmiy tahrir.',
+        card_action: 'Vazifani muhokama qilish',
+        diff_kicker: 'Format farqi',
+        diff_title: 'Oddiy agentlik emas, olimning shaxsiy amaliyoti',
+        diff1_no: 'Menejerlar zanjiriga ega agentlik',
+        diff1_yes: 'Bitta ekspert loyihani boshidan oxirigacha olib boradi',
+        diff2_no: 'Startaplar va biznes uchun grantlar',
+        diff2_yes: 'Olimlar va ITI uchun ilmiy grantlarga ixtisoslashuv',
+        diff3_no: 'Yirik firmani oylab kutish',
+        diff3_yes: 'Tezkor va hamyonbop shaxsiy ekspertiza',
+        diff4_no: 'Dissertatsiyani «tayyor holda» yozib berish',
+        diff4_yes: 'Metodik maslahat va mazmuniy tahlil',
+        quote_text: '«Hisobotlar, tahlillar va taxminlar orasida koʻzdan qochadigan jihatlarni koʻrishga yordam beradigan mustaqil ekspert nigohi»',
+        positioning_key_msg: 'Xalqaro byurokratiya ham emas, nomsiz frilanser ham emas — soha boʻyicha DSc darajasiga va xalqaro ilmiy hamkorlikda real tajribaga ega, har bir loyihani shaxsan olib boradigan olim.',
+        quote_author: 'Rustam Abduxatovich Xalmatov, DSc',
+        pos_kicker: 'Bozordagi oʻrni',
+        pos_title: 'Bozorning boshqa ishtirokchilari bilan taqqoslash',
+        pos_tab1: '01 · Grant konsaltingi',
+        pos_tab2: '02 · Geologik ekspertiza',
+        pos_tab3: '03 · PhD/DSc dissertatsiyalari',
+        col_player: 'Bozor ishtirokchisi turi',
+        col_they: 'Ular nima taklif qiladi',
+        col_me: 'R.A. Xalmatov amaliyotining farqi',
+        p1_r1_c1: 'Xalqaro EU-konsalting firmalari (ScienceDocs, UpGrants va b.)',
+        p1_r1_c2: 'Asosan Horizon Europe va startaplar uchun tijorat/deep-tech grantlari bilan ishlaydi; Yevropada joylashgan, postsovet ITI va akademik arizalarga ixtisoslashmagan.',
+        p1_r1_c3: 'Aynan Markaziy Osiyo olimlari va ITI uchun ilmiy grantlarga (JSPS, GSA, IGCP/UNESCO) ixtisoslashuv; xalqaro hamkorlik boʻyicha shaxsiy tajriba va mintaqa oʻziga xosligini tushunish.',
+        p1_r2_c1: 'Oʻzbekistonning mahalliy biznes-konsalting firmalari',
+        p1_r2_c2: 'Umumiy biznes-konsalting: kompaniya roʻyxatdan oʻtkazish, buxgalteriya, biznes-rejalar — ilm-fan grantlari ularning sohasi emas.',
+        p1_r2_c3: 'Sohaga oid ilmiy ekspertiza (DSc, geologiya/geoximiya) va xalqaro hamkorlik hamda grantlar boʻlimi rahbari sifatidagi tajriba — faqat ariza shaklini emas, jarayonni ichkaridan tushunish.',
+        p2_r1_c1: 'Yirik xalqaro kompaniyalar (SRK Consulting va shunga oʻxshashlar)',
+        p2_r1_c2: 'Yirik loyihalar va xalqaro investorlar uchun kompleks xizmatlar; yuqori narx, uzoq muddatlar, katta koʻlamga yoʻnaltirilganlik.',
+        p2_r1_c3: 'Oʻrta va kichik kompaniyalar uchun tezkor, shaxsiy va maqbul narxdagi ekspertiza — yirik xalqaro tuzilmaning qoʻshimcha xarajatlarisiz.',
+        p2_r2_c1: 'Davlat institutlari va ekspertizasi',
+        p2_r2_c2: 'Yer qaʼridan foydalanishning tartibga solingan protseduralari doirasidagi rasmiy ekspertiza; tezkor xususiy konsalting formatida ishlamaydi.',
+        p2_r2_c3: 'Davlat tartib-taomillaridan tashqari mustaqil ekspert fikri — tezlik va moslashuvchanlik rasmiy protseduradan muhimroq boʻlgan due diligence, ichki qarorlar va dastlabki baholash uchun.',
+        p3_r1_c1: '«Tayyor holda» xizmatlar (buyurtma asosida dissertatsiya yozish)',
+        p3_r1_c2: 'Aslida ghostwriting — ishni tadqiqotchi oʻrniga uchinchi shaxs yozadi; akademik obroʻ va halollik uchun xavflar.',
+        p3_r1_c3: 'Faqat metodik maslahat va tahlil: tadqiqotni izlanuvchining oʻzi olib boradi, ekspert esa metodologiya, tuzilma va talablarga muvofiqlik borasida shaffof va halol yordam beradi.',
+        p3_r2_c1: 'Alohida «ilmiy muharrirlar»',
+        p3_r2_c2: 'Muayyan ilmiy sohada chuqur ekspertizasiz umumiy matn va rasmiylashtirishni yaxshilash.',
+        p3_r2_c3: 'Aynan geologiya, mineralogiya va geoximiya boʻyicha ekspertiza — soha boʻyicha DSc darajasiga ega mutaxassisdan nafaqat matn, balki mazmuniy yordam.',
+        contacts_kicker: 'Ekspert bilan toʻgʻridan-toʻgʻri muloqot',
+        contacts_title: 'Vizitka va murojaat',
+        contact_phone_label: 'Telefon / WhatsApp',
+        copy_email: 'Nusxa olish',
+        copied_email: 'Nusxa olindi',
+        contact_channels_label: 'Toʻgʻridan-toʻgʻri aloqa kanallari',
+        card_wa_btn: 'WhatsApp orqali yozish',
+        contact_loc_label: 'Manzil',
+        contact_loc_val: 'Toshkent, Oʻzbekiston',
+        card_motto: '«Resursli kelajak uchun bilim»',
+        form_title: 'Ilmiy maslahat uchun soʻrov',
+        form_subtitle: 'Vazifa, maydon, grant fondi yoki dissertatsiya tadqiqoti mavzusini qisqacha yozing — shaxsan javob beraman va ish formatini taklif qilaman.',
+        form_topic_label: 'Maslahat yoʻnalishi',
+        opt_grants: 'Grant konsaltingi (JSPS, GSA, IGCP/UNESCO)',
+        opt_expertise: 'Geologik va mineralogik ekspertiza (Au, REE, kritik xomashyo)',
+        opt_dissertation: 'PhD / DSc dissertatsiyasi boʻyicha maslahat',
+        form_name_label: 'Ismingiz / tashkilot',
+        form_name_ph: 'Ism, tashkilot',
+        form_contact_label: 'Email yoki Telegram / WhatsApp',
+        form_contact_ph: 'name@institute.uz / @username',
+        form_msg_label: 'Vazifaning qisqacha tavsifi',
+        form_msg_ph: 'Murojaat maqsadi, muddatlar yoki asosiy savollarni koʻrsating...',
+        form_submit_wa: 'WhatsApp orqali yuborish',
+        form_submit_email: 'Email orqali yuborish',
+        form_privacy: 'Ilmiy va geologik materiallarning maxfiyligi kafolatlanadi.',
+        footer_loc: 'Toshkent, Oʻzbekiston',
+        footer_slogan: 'Resursli kelajak uchun bilim · Знания для ресурсного будущего · Knowledge for a Resourceful Tomorrow',
+        toast_copy_title: 'Email nusxalandi',
+        toast_copy_body: 'khalmatovrustam@gmail.com manzili vaqtinchalik xotiraga nusxalandi.',
+        toast_wa_title: 'WhatsAppga oʻtish',
+        toast_wa_body: 'Murojaatingiz matni WhatsApp orqali yuborish uchun tayyorlandi.',
+        toast_email_title: 'Pochta dasturi ochildi',
+        toast_email_body: 'Xat khalmatovrustam@gmail.com manziliga yuborish uchun tayyorlandi.',
+        toast_fill_title: 'Maydonlarni toʻldiring',
+        toast_fill_body: 'Iltimos, ismingiz, aloqa maʼlumotingiz va vazifaning qisqacha tavsifini kiriting.'
+      },
+      en: {
+        nav_services: 'Services',
+        nav_approach: 'Approach',
+        nav_positioning: 'Positioning',
+        nav_contacts: 'Card & Contacts',
+        nav_cta: 'Get in Touch',
+        hero_badge: 'Scientific Geoscience Consulting',
+        hero_title: 'Geological Expertise & Scientific Consulting — Without Intermediaries',
+        hero_lead: 'Academic grants for scientists and research institutes, independent geological reviews for small and mid-sized companies, and methodological advisory for PhD/DSc dissertations — led personally by a Doctor of Science.',
+        expert_name: 'Rustam A. Khalmatov, <span class="text-mineralGold-300">DSc</span>',
+        expert_spec: 'Geology, Mineralogy and Geochemistry — Precious Metals, Rare Earth Elements & Critical Raw Materials',
+        btn_consult: 'Discuss Your Project',
+        btn_telegram: 'Telegram Channel',
+        location_short: 'Tashkent · Uzbekistan',
+        hero_slogan: '«Knowledge for a Resourceful Tomorrow»',
+        cred1_label: 'Academic Degree',
+        cred1_val: 'Doctor of Science (DSc) in Geology and Mineralogy',
+        cred2_label: 'Grants & Cooperation',
+        cred2_val: 'Head of International Scientific Cooperation and Grants Department',
+        cred3_label: 'International Mandate',
+        cred3_val: 'UNECE Expert on Critical Raw Materials and Green Economy',
+        cred4_label: 'Engagement Model',
+        cred4_val: 'Personal execution of every engagement, with no agency chain',
+        services_kicker: 'Practice Areas',
+        services_title: 'Three Areas, One Domain-Specific Expertise',
+        card1_title: 'Grant Consulting for Scientists & Research Institutes',
+        card1_p1: 'Not startup grants and not Horizon Europe for business — dedicated strictly to scientific and academic proposals: <strong class="font-semibold text-ink-900">JSPS, GSA, IGCP/UNESCO</strong> for researchers and institutes in Central Asia.',
+        card1_p2: 'Structuring proposals through the eyes of a reviewer rather than merely filling out forms — from an expert who has spent years on the evaluation side.',
+        card2_title: 'Geological & Mineralogical Expertise',
+        card2_p1: 'Specialized in <strong class="font-semibold text-ink-900">precious metals, rare earth elements, and critical raw materials</strong>: independent prospectivity assessments and exploration report previews for small and mid-sized companies.',
+        card2_p2: 'Timely, reasonably priced personal expert conclusions for due diligence and internal decisions — without months of waiting, five-person teams, or three-tier corporate sign-offs.',
+        card3_tag: 'PhD / DSc · VAK Standards',
+        card3_title: 'PhD / DSc Dissertation Methodological Advisory',
+        card3_p1: 'Scientific and methodological review of structure, logic, research design, and Higher Attestation Commission (VAK) compliance — <strong class="font-semibold text-ink-900">strictly not ghostwriting</strong>. Transparent support for research conducted by the candidate.',
+        card3_p2: 'Scientific editing with deep subject-matter immersion in geology, mineralogy, and geochemistry — far beyond language or formatting review.',
+        card_action: 'Discuss Your Project',
+        diff_kicker: 'How It Differs',
+        diff_title: 'Not a Standard Agency — A Scientist’s Personal Practice',
+        diff1_no: 'An agency with a chain of account managers',
+        diff1_yes: 'One senior expert leads the project from start to finish',
+        diff2_no: 'Grants for startups and commercial businesses',
+        diff2_yes: 'Focused strictly on scientific grants for scholars and research institutes',
+        diff3_no: 'Months of waiting at a large firm',
+        diff3_yes: 'Fast, accessible personal geological expertise',
+        diff4_no: 'Turnkey dissertation ghostwriting',
+        diff4_yes: 'Methodological consultation and substantive review',
+        quote_text: '«An independent expert perspective that helps reveal what gets lost among reports, assays, and assumptions»',
+        positioning_key_msg: 'Neither international bureaucracy nor an anonymous freelancer — a scientist holding a DSc in geology and real experience in international scientific cooperation who personally leads every project.',
+        quote_author: 'Rustam A. Khalmatov, DSc',
+        pos_kicker: 'Market Positioning',
+        pos_title: 'Comparison with Other Market Players',
+        pos_tab1: '01 · Grant Consulting',
+        pos_tab2: '02 · Geological Expertise',
+        pos_tab3: '03 · PhD/DSc Dissertations',
+        col_player: 'Competitor Type',
+        col_they: 'What They Offer',
+        col_me: 'How Dr. Khalmatov’s Practice Differs',
+        p1_r1_c1: 'International EU Consulting Firms (ScienceDocs, UpGrants, etc.)',
+        p1_r1_c2: 'Focused primarily on Horizon Europe and commercial/deep-tech startup grants; based in Europe without specialization in post-Soviet research institutes or academic applications.',
+        p1_r1_c3: 'Dedicated strictly to scientific grants (JSPS, GSA, IGCP/UNESCO) for Central Asian researchers and institutes; first-hand international cooperation experience and regional insight.',
+        p1_r2_c1: 'Local Business Consulting Firms in Uzbekistan',
+        p1_r2_c2: 'General business consulting: company registration, accounting, business plans — scientific grants are outside their core profile.',
+        p1_r2_c3: 'Domain-specific scientific expertise (DSc, geology/geochemistry) combined with experience heading an International Cooperation & Grants Department — inside understanding of the review process, not just templates.',
+        p2_r1_c1: 'Large International Firms (SRK Consulting & peers)',
+        p2_r1_c2: 'Comprehensive services for major projects and international investors; high fees, lengthy timelines, built for large scale.',
+        p2_r1_c3: 'Fast, personal, and reasonably priced expertise for small and mid-sized companies — without the overhead of a major international consultancy.',
+        p2_r2_c1: 'State Institutes & Official Expertise',
+        p2_r2_c2: 'Formal reviews within regulated subsoil-use procedures; not structured for agile private consulting.',
+        p2_r2_c3: 'Independent expert opinion outside state procedures — tailored for due diligence, internal decisions, and preliminary evaluation where speed and flexibility matter.',
+        p3_r1_c1: 'Turnkey Services (Custom Dissertation Writing)',
+        p3_r1_c2: 'Effectively ghostwriting by a third party; carries serious risks to academic integrity and reputation.',
+        p3_r1_c3: 'Methodological advisory and substantive review only: the candidate conducts the research while the advisor assists with methodology, structure, and compliance — transparently and ethically.',
+        p3_r2_c1: 'General “Scientific Editors”',
+        p3_r2_c2: 'General text and formatting edits without deep subject-matter mastery in the specific scientific discipline.',
+        p3_r2_c3: 'Specialized expertise in geology, mineralogy, and geochemistry — substantive scientific feedback, not merely copyediting, from a DSc specialist.',
+        contacts_kicker: 'Direct Expert Dialogue',
+        contacts_title: 'Business Card & Inquiry',
+        contact_phone_label: 'Phone / WhatsApp',
+        copy_email: 'Copy',
+        copied_email: 'Copied',
+        contact_channels_label: 'Direct Channels',
+        card_wa_btn: 'Message on WhatsApp',
+        contact_loc_label: 'Location',
+        contact_loc_val: 'Tashkent, Uzbekistan',
+        card_motto: '«Knowledge for a Resourceful Tomorrow»',
+        form_title: 'Scientific Consultation Inquiry',
+        form_subtitle: 'Share a brief overview of your project, target area, grant program, or dissertation scope — I will reply personally and propose an engagement format.',
+        form_topic_label: 'Consulting Area',
+        opt_grants: 'Grant Consulting (JSPS, GSA, IGCP/UNESCO)',
+        opt_expertise: 'Geological & Mineralogical Expertise (Au, REE, Critical Raw Materials)',
+        opt_dissertation: 'PhD / DSc Dissertation Advisory',
+        form_name_label: 'Your Name / Organization',
+        form_name_ph: 'Name, affiliation',
+        form_contact_label: 'Email or Telegram / WhatsApp',
+        form_contact_ph: 'name@institute.org / @username',
+        form_msg_label: 'Brief Project Description',
+        form_msg_ph: 'Outline your objective, timeline, or key questions...',
+        form_submit_wa: 'Send via WhatsApp',
+        form_submit_email: 'Send via Email',
+        form_privacy: 'Confidentiality of all scientific and geological materials is guaranteed.',
+        footer_loc: 'Tashkent, Uzbekistan',
+        footer_slogan: 'Knowledge for a Resourceful Tomorrow · Знания для ресурсного будущего · Resursli kelajak uchun bilim',
+        toast_copy_title: 'Email Copied',
+        toast_copy_body: 'khalmatovrustam@gmail.com has been copied to your clipboard.',
+        toast_wa_title: 'Opening WhatsApp',
+        toast_wa_body: 'Your consultation message has been prepared for WhatsApp.',
+        toast_email_title: 'Opening Mail Client',
+        toast_email_body: 'Your inquiry has been pre-filled for khalmatovrustam@gmail.com.',
+        toast_fill_title: 'Please Complete the Form',
+        toast_fill_body: 'Enter your name, contact details, and a brief description of your task.'
+      }
+    };
+
+    let currentLang = 'ru';
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      const activeBtn = 'px-2.5 py-1 rounded text-xs font-semibold tracking-wider transition-colors bg-mineralGold-400 text-malachite-950';
+      const inactiveBtn = 'px-2.5 py-1 rounded text-xs font-semibold tracking-wider transition-colors text-quartz/75 hover:text-quartz';
+
+      ['ru', 'uz', 'en'].forEach((code) => {
+        const btn = document.getElementById(`btn-${code}`);
+        if (btn) btn.className = code === lang ? activeBtn : inactiveBtn;
+      });
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key] !== undefined) {
+          el.setAttribute('placeholder', translations[lang][key]);
+        }
+      });
+    }
+
+    function switchPosTab(tabId) {
+      const tabs = ['grants', 'expertise', 'dissertation'];
+      tabs.forEach((id) => {
+        const btn = document.getElementById(`tab-${id}`);
+        const panel = document.getElementById(`panel-${id}`);
+        const active = id === tabId;
+        if (btn) btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (panel) panel.classList.toggle('is-active', active);
+      });
+    }
+
+    function selectTopic(topicValue) {
+      const select = document.getElementById('topic-select');
+      if (select) select.value = topicValue;
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mobile-nav');
+      const btn = document.getElementById('mobile-menu-btn');
+      const icon = document.getElementById('mobile-menu-icon');
+      const isHidden = nav.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+      icon.setAttribute('d', isHidden ? 'M4 7h16M4 12h16M4 17h16' : 'M6 6l12 12M18 6l-12 12');
+    }
+
+    function closeMobileMenu() {
+      const nav = document.getElementById('mobile-nav');
+      const btn = document.getElementById('mobile-menu-btn');
+      const icon = document.getElementById('mobile-menu-icon');
+      nav.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      icon.setAttribute('d', 'M4 7h16M4 12h16M4 17h16');
+    }
+
+    function copyEmail() {
+      const email = 'khalmatovrustam@gmail.com';
+      const finishCopy = () => {
+        const copyBtnText = document.getElementById('copy-btn-text');
+        copyBtnText.textContent = translations[currentLang].copied_email;
+        showToast(translations[currentLang].toast_copy_title, translations[currentLang].toast_copy_body);
+        setTimeout(() => {
+          copyBtnText.textContent = translations[currentLang].copy_email;
+        }, 2500);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(finishCopy).catch(() => fallbackCopy(email, finishCopy));
+      } else {
+        fallbackCopy(email, finishCopy);
+      }
+    }
+
+    function fallbackCopy(text, onSuccess) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      temp.style.position = 'fixed';
+      temp.style.opacity = '0';
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+        onSuccess();
+      } finally {
+        document.body.removeChild(temp);
+      }
+    }
+
+    function buildInquiryPayload() {
+      const select = document.getElementById('topic-select');
+      const topicText = select.options[select.selectedIndex].text;
+      const name = document.getElementById('sender-name').value.trim();
+      const contact = document.getElementById('sender-contact').value.trim();
+      const message = document.getElementById('sender-message').value.trim();
+
+      if (!name || !contact || !message) {
+        showToast(translations[currentLang].toast_fill_title, translations[currentLang].toast_fill_body);
+        return null;
+      }
+
+      const body = [
+        `KHALMATOV GEOSCIENCE CONSULTING`,
+        `${translations[currentLang].form_topic_label}: ${topicText}`,
+        `${translations[currentLang].form_name_label}: ${name}`,
+        `${translations[currentLang].form_contact_label}: ${contact}`,
+        '',
+        message
+      ].join('\n');
+
+      return { topicText, body };
+    }
+
+    function handleWhatsAppSubmit(event) {
+      event.preventDefault();
+      const payload = buildInquiryPayload();
+      if (!payload) return;
+      const url = `https://wa.me/998909923259?text=${encodeURIComponent(payload.body)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      showToast(translations[currentLang].toast_wa_title, translations[currentLang].toast_wa_body);
+    }
+
+    function handleEmailSubmit() {
+      const payload = buildInquiryPayload();
+      if (!payload) return;
+      const subject = `Khalmatov Geoscience Consulting — ${payload.topicText}`;
+      const url = `mailto:khalmatovrustam@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(payload.body)}`;
+      window.location.href = url;
+      showToast(translations[currentLang].toast_email_title, translations[currentLang].toast_email_body);
+    }
+
+    let toastTimeout;
+    function showToast(title, body) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-body').textContent = body;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(hideToast, 5000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast-notification');
+      toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }
+  </script>
+</body>
+</html>
